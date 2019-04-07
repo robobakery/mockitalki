@@ -1,5 +1,5 @@
 {
-  "name": "electron-quick-start",
+  "name": "mockitalki",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
@@ -9,6 +9,7 @@
     "win": "electron-builder -w",
     "linux": "electron-builder -l",
     "build": "electron-builder -mwl",
+    "publish": "GH_TOKEN=88e0c58c856283e6eab250ac49f073f9cfea180e electron-builder build -m -p onTagOrDraft",
     "make-win-cert": "electron-builder create-self-signed-cert -p Robobakery"
   },
   "build": {
@@ -17,19 +18,22 @@
       "buildResources": ","
     },
     "mac": {
+      "publish": ["github"],
       "category": "public.app-category.productivity",
       "target": "dmg"
     },
     "win": {
+      "publish": ["github"],
       "certificateFile": "certificates/Robobakery.p12",
       "verifyUpdateCodeSignature": false,
       "publisherName": "Robobakery"
     },
     "linux": {
+      "publish": ["github"],
       "category": "Network"
     }
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/robobakery/mockitalki",
   "keywords": [
     "Electron",
     "quick",
