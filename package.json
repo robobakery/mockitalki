@@ -9,7 +9,7 @@
     "win": "electron-builder -w",
     "linux": "electron-builder -l",
     "build": "electron-builder -mwl",
-    "publish": "GH_TOKEN=88e0c58c856283e6eab250ac49f073f9cfea180e electron-builder build -m -p onTagOrDraft",
+    "publish": "GH_TOKEN=88e0c58c856283e6eab250ac49f073f9cfea180e electron-builder build -m -p 'onTagOrDraft'",
     "make-win-cert": "electron-builder create-self-signed-cert -p Robobakery"
   },
   "build": {
@@ -18,18 +18,24 @@
       "buildResources": ","
     },
     "mac": {
-      "publish": ["github"],
+      "publish": [
+        "github"
+      ],
       "category": "public.app-category.productivity",
-      "target": "dmg"
+      "target": ["dmg", "zip"]
     },
     "win": {
-      "publish": ["github"],
+      "publish": [
+        "github"
+      ],
       "certificateFile": "certificates/Robobakery.p12",
       "verifyUpdateCodeSignature": false,
       "publisherName": "Robobakery"
     },
     "linux": {
-      "publish": ["github"],
+      "publish": [
+        "github"
+      ],
       "category": "Network"
     }
   },
@@ -50,6 +56,8 @@
   },
   "dependencies": {
     "bulma": "^0.7.4",
+    "electron-log": "^3.0.5",
+    "electron-updater": "^4.0.6",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1"
   }
